@@ -12,7 +12,13 @@ error during the connection. We recommend you re-run the command using -vvvv,
 which will enable SSH debugging output to help diagnose the issue", [...]
 ```
 
-I could SSH to the instance from the command line with no problems, so I knew that my private key configuration for this instance was correct. Searching the Ansible docs didn't turn up anything.
+I could SSH to the instance from the command line with no problems, so I knew that my private key configuration for this instance was correct.  The CentOS AMI I was using requires the user name ```centos``` (and therefore sudo for all privileged commands), so my inventory file looked like this:
+
+```
+[default]
+ec2-54-173-130-100.compute-1.amazonaws.com ansible_user=centos ansible_become=true
+```
+
 
 Running with ```-vvvv```, at the end of a long mashup of output lines, I saw that the connection was indeed authenticated. But this error occurred soon after:
 
