@@ -1,13 +1,13 @@
 To count queues in an account (for the default region):
 
-`alias sqscnt='aws sqs list-queues | jq .QueueUrls[] | wc -l'`
+`alias sqslist='aws sqs list-queues | jq .QueueUrls[]'`
 
 Count topics:
 
-`alias snscnt='aws sns list-topics | jq .Topics[].TopicArn | wc -l'`
+`alias snslist='aws sns list-topics | jq .Topics[].TopicArn'`
 
 Handy summary:
 
 ```
-echo -e "queues: $(sqscnt)\ntopics: $(snscnt)"
+echo -e "queues: $(sqslist|wc -l)\ntopics: $(snslist|wc -l)"
 ```
