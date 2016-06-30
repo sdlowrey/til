@@ -7,3 +7,13 @@ First, just try `go test` and see how that goes.
 If the project uses vendoring, try `go test $(go list ./... | grep -v '/vendor/')`.
 
 If the `check.v1` package is required, `go get gopkg.in/check.v1`
+
+Since check.v1 is the bomb, you can select a specific test to run and get verbose output.
+
+```
+go test -check.v -check.f ControlSuite
+```
+
+The `check.f` option accepts regular expressions.
+
+Use `-check.vv` for more verbosity.
