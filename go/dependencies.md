@@ -16,7 +16,7 @@ godep update ./...
 
 Do this when you have tested your changes and things are working the way you want.  Be prepared to revert the changes -- `git diff` will give you an overview.
 
-Running `godep save ./...` will update the `vendor/` tree to use the current versions (in your src tree) of all the libs your project depends on.  So be mindful of what repos are checked out, what version they are at, and whether you have modified any of them.  
+Running `godep save ./...` will update the `vendor/` tree to use the current versions (in your src tree) of all the libs your project depends on.  So be mindful of what repos are checked out, what version they are at, and whether you have modified any of them.  Remember to checkout a _tag_ of a dependent repo, if possible.  Godep seems to understand that better than, say, being at the head of a branch like `develop`. Dunno why.
 
 Check to see what has changed in `Godeps/Godeps.json` after you run any `godep` command.  You can see what has changed and make sure nothing unexpected got pulled in.
 
